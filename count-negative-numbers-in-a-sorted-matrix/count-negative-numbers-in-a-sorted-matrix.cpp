@@ -1,9 +1,7 @@
 class Solution {
 public:
     int countNegatives(vector<vector<int>>& v) {
-        int row=v.size(),col=v[0].size();
-        int r=0,c=col-1,ans=0;
-
+        int row=v.size(),col=v[0].size(),r=0,c=col-1,ans=0;
         while(r<row && c>=0)
         {
             int x=v[r][c];
@@ -13,7 +11,9 @@ public:
                 c--;
             }
             else
-            r++;
+            {
+                r++;
+            }
         }
         return ans;
     }
