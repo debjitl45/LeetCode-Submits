@@ -1,19 +1,20 @@
 class Solution {
 public:
-    char nextGreatestLetter(vector<char>& v, char t) {
-        int low=0,mid=0,high=v.size()-1;
-        while(low<=high)
+    char nextGreatestLetter(vector<char>& letters, char target) {
+        vector<int> h(26,0);
+        char ans=' ';
+        for(char ch:letters)
         {
-            mid=low+(high-low)/2;
-            if(v[mid]>t)
+            h[ch-'a']++;
+        }
+        for(int i=0;i<26;i++)
+        {
+            if(h[i] && i>target-'a')
             {
-                high=mid-1;
-            }
-            else
-            {
-                low=mid+1;
+            ans=(char)(i+'a');
+            break;
             }
         }
-        return low==v.size()?v[0]:v[low];
+        return ans==' '? letters[0]:ans;
     }
 };
