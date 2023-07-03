@@ -2,11 +2,12 @@ class Solution {
 public:
     bool buddyStrings(string s, string t) {
         if(s.size()!=t.size())
-        return false;
-
+        {
+            return false;
+        }
+        vector<int> freq(26,0);
         if(s==t)
         {
-            vector<int> freq(26,0);
             for(auto& ch:s)
             {
                 freq[ch-'a']++;
@@ -30,7 +31,7 @@ public:
         }
         if(idx2==-1)
         return false;
-        
+
         return s[idx1]==t[idx2] && s[idx2]==t[idx1];
     }
 };
