@@ -1,18 +1,20 @@
 class Solution {
 public:
     int longestSubarray(vector<int>& v) {
-        int ans=0,zc=0,start=0;
+        int zeros=0,ans=0,idx=0;
+
         for(int i=0;i<v.size();i++)
         {
-            if(v[i]==0) zc+=1;
+            if(!v[i]) zeros++;
 
-            while(zc>1)
+            while(zeros>1)
             {
-                if(v[start]==0)
-                zc-=1;
-                start++;
+                if(!v[idx])
+                zeros--;
+
+                idx++;
             }
-            ans=max(ans,i-start);
+            ans=max(ans,i-idx);
         }
         return ans;
     }
