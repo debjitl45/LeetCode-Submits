@@ -1,19 +1,21 @@
 class Solution {
 public:
-    // sort the array
-    // linear search
-    // modified binary search
-    int findMin(vector<int>& v) {
-        int n=v.size();
-        int low=0,high=n-1,mid=0;
-        while(low<high)
+    int findPivot(vector<int>& v) {
+        int low=0,high=v.size()-1,mid=0;
+        while(low<=high)
         {
-            mid=low+(high-mid)/2;
-            if(v[mid]>v[high])
+            mid=low+(high-low)/2;
+            if(mid<v.size()-1 && v[mid]>v[mid+1])
+            return mid+1;
+            else if(v[low]<=v[mid])
             low=mid+1;
             else
-            high=mid;
+            high=mid-1;
         }
-        return v[low];
+        return 0;
+    }
+    int findMin(vector<int>& v) {
+        int pivot=findPivot(v);
+        return v[pivot];
     }
 };
