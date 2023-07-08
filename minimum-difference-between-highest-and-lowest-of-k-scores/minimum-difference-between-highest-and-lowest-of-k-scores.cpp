@@ -2,11 +2,13 @@ class Solution {
 public:
     int minimumDifference(vector<int>& v, int k) {
         sort(v.begin(),v.end());
-        int diff=INT_MAX,n=v.size();
-        for(int i=0;i<=n-k;i++)
+        int i=0,j=k-1,n=v.size(),diff=INT_MAX;
+        while(j<n)
         {
-            diff=min(diff,v[i+k-1]-v[i]);
+            diff=min(diff,v[j]-v[i]);
+            i++;
+            j++;
         }
-        return diff;        
+        return diff;
     }
 };
