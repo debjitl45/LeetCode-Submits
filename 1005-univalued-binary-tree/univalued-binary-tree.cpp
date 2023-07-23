@@ -11,20 +11,13 @@
  */
 class Solution {
 public:
-    set<int> st;
-    void preorder(TreeNode* root)
+    bool helper(TreeNode* root)
     {
-        if(!root) return;
-
-        st.insert(root->val);
-        preorder(root->left);
-        preorder(root->right);
+        bool left=root->left==NULL || root->val==root->left->val && helper(root->left);
+        bool right=root->right==NULL || root->val==root->right->val && helper(root->right);
+        return left && right;
     }
     bool isUnivalTree(TreeNode* root) {
-        preorder(root);
-        if(st.size()>1)
-        return false;
-        
-        return true;
+        return helper(root);
     }
 };
