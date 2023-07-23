@@ -14,14 +14,16 @@ public:
     vector<string> ans;
     void preorder(TreeNode* root,string s)
     {
-        if(!root) return;
+        if(!root) return ;
 
         s+=to_string(root->val)+"->";
+        
         preorder(root->left,s);
         preorder(root->right,s);
+
         if(!root->left && !root->right)
         ans.push_back(s.substr(0,s.size()-2));
-        return;
+        return ;
     }
     vector<string> binaryTreePaths(TreeNode* root) {
         preorder(root,"");
