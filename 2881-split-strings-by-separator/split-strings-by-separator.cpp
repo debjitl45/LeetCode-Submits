@@ -10,13 +10,14 @@ public:
             {
                 if(a==sep && temp!="")
                 {
-                ans.push_back(temp);
-                temp="";
+                    ans.push_back(temp);
+                    temp="";
                 }
                 if(a!=sep)
                 temp+=a;
             }
-            if(temp!="") ans.push_back(temp);
+            if(temp!="")
+            ans.push_back(temp);
         }
         return ans;
     }
