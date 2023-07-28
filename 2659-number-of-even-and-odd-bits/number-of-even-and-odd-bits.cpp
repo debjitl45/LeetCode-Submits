@@ -11,7 +11,7 @@ public:
                 else
                 o++;
             }
-            n=n/2;
+            n>>=1;
         }
         return {e,o};
     }
