@@ -8,7 +8,6 @@ public:
             ans.push_back(ds);
             return;
         }
-
         for(int i=idx;i<n+1;i++)
         {
             ds.push_back(i);
