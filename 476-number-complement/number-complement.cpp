@@ -1,23 +1,21 @@
 class Solution {
 public:
-    int to_binary(int n)
+    int countBits(int n)
     {
-        int count=0;
+        int cnt=0;
         while(n>0)
         {
-            count++;
+            cnt++;
             n=n>>1;
         }
-        return count;
+        return cnt;
     }
     int findComplement(int num) {
-        int rem=0,x=num;
-        vector<int> bin;
-        int cnt=to_binary(x);
+        int cnt=countBits(num);
         for(int i=0;i<cnt;i++)
         {
             num=num^(1<<i);
         }
-        return num;        
+        return num;
     }
 };
