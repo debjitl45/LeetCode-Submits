@@ -26,13 +26,12 @@ public:
         {
             vector<TreeNode*> leftST=helper(start,i-1,mp);
             vector<TreeNode*> rightST=helper(i+1,end,mp);
-
-            for(auto left: leftST)
+            for(auto left:leftST)
             {
-                for(auto right: rightST)
+                for(auto right:rightST)
                 {
-                    TreeNode* root=new TreeNode(i,left,right);
-                    ans.push_back(root);
+                    TreeNode* node=new TreeNode(i,left,right);
+                    ans.push_back(node);
                 }
             }
         }
