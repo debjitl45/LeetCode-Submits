@@ -1,21 +1,20 @@
 class Solution {
 public:
-    bool helper(vector<int>& v,int ans,int p,int n)
+    bool helper(vector<int>& v, int mid, int p, int n)
     {
-       for(int i=0;i<n-1;i++)
-       {
-           if(v[i+1]-v[i]<=ans)
-           {
-               i++;
-               p--;
-           }   
-       }
-       return p<=0;
+        for(int i=1;i<n;i++)
+        {
+            if(abs(v[i]-v[i-1])<=mid)
+            {
+                i++;
+                p--;
+            }
+        }
+        return p<=0;
     }
     int minimizeMax(vector<int>& v, int p) {
+        int l=0,r=1e9,n=v.size();
         sort(v.begin(),v.end());
-        int n=v.size();
-        int l=0,r=1e9;
         while(l<=r)
         {
             int m=(l+r)/2;
