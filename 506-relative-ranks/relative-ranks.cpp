@@ -6,7 +6,7 @@ public:
         int n=v.size();
         for(int i=0;i<n;i++)
         {
-            vp.push_back(make_pair(v[i],i));                        
+            vp.push_back(make_pair(v[i],i));
         }
         sort(vp.rbegin(),vp.rend());
         for(int i=0;i<vp.size();i++)
