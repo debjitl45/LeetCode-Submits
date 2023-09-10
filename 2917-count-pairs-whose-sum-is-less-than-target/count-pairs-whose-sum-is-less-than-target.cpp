@@ -1,13 +1,18 @@
 class Solution {
 public:
     int countPairs(vector<int>& v, int t) {
-        int cnt=0,n=v.size();
-        for(int i=0;i<n;i++)
+        sort(v.begin(),v.end());
+        int l=0,r=v.size()-1,cnt=0;
+        while(l<r)
         {
-            for(int j=i+1;j<n;j++)
+            if(v[l]+v[r]<t)
             {
-                if(v[i]+v[j]<t)
-                cnt++;
+                cnt+=r-l;
+                l++;
+            }
+            else
+            {
+                r--;
             }
         }
         return cnt;
